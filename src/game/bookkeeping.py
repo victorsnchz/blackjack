@@ -5,13 +5,16 @@ class ReshuffleFrequency(enum.Enum):
     MODERATE = enum.auto()
     HIGH = enum.auto()
 
-class PlayerMoves(enum.Enum):
+class Moves(enum.Enum):
+    pass
+
+class PlayerMoves(Moves):
     HIT = enum.auto()
     STAND = enum.auto()
     DOUBLE_DOWN = enum.auto()
     SPLIT = enum.auto()
     SURRENDER = enum.auto()
 
-class DealerMoves(enum.Enum):
+class DealerMoves(Moves):
     HIT = enum.auto()
     STAND = enum.auto()

@@ -5,7 +5,6 @@ from bookkeeping import ReshuffleFrequency
 class GameConfig:
     MIN_DEKCS: int = 1
 
-
 @dataclasses.dataclass(frozen=True)
 class Rules:
 
