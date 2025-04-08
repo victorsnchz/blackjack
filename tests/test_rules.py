@@ -19,12 +19,22 @@ class TestRulesTypeCheck(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rules(surrender = 'True')
 
+    def test_number_of_players(self):
+
+        with self.assertRaises(TypeError):
+            Rules(number_of_players = 'three')
+
 class TestRulesValueCheck(unittest.TestCase):
 
     def test_number_of_decks(self):
 
         with self.assertRaises(ValueError):
             Rules(number_of_decks = 0)
+
+    def test_number_of_players(self):
+
+        with self.assertRaises(ValueError):
+            Rules(number_of_players = 0)
 
 if __name__ == '__main__':
     unittest.main()

@@ -89,9 +89,6 @@ class Bot(Player):
 
         self.cards_history = defaultdict(int)
 
-    def reset_live_cards(self):
-        return super().reset_live_cards()
-
     def update_live_cards(self, reshuffle=False):
         pass
 
