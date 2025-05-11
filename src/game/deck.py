@@ -16,9 +16,6 @@ class Deck:
 
     def is_empty(self) -> bool:
         return not bool(self.cards)
-    
-    def is_card_in_deck(self, card: Card) -> bool:
-        return card in self.cards
 
     def draw(self) -> Card:
         
