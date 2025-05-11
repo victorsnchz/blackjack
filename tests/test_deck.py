@@ -1,5 +1,6 @@
 import unittest
 import sys
+import copy
 
 sys.path.append('src/game')
 from deck import Deck
@@ -12,6 +13,9 @@ class TestDeckInit(unittest.TestCase):
 
     def test_cards_full_deck(self):
         self.assertEqual(52, len(self.deck.cards))
+
+    def test_cards_unicity(self):
+        self.assertEqual(len(self.deck.cards), len(set(self.deck.cards)))
 
 class TestModifiersFunctions(unittest.TestCase):
 
@@ -38,6 +42,14 @@ class TestModifiersFunctions(unittest.TestCase):
             self.assertEqual(self.deck.remaining_cards(), cards_count)
 
         self.assertEqual(self.deck.is_empty(), True)
+
+    def test_shuffle_deck(self):
+
+        first_shuffle = copy.copy(self.deck.cards)
+        self.deck.shuffle()
+        second_shuffle = copy.copy(self.deck.cards)
+        
+        self.assertNotEqual(first_shuffle, second_shuffle)
 
 class TestBooleanFunctions(unittest.TestCase):
 
