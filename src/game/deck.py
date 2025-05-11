@@ -6,7 +6,8 @@ from cards import Card, Value, Suit
 @dataclasses.dataclass
 class Deck:
 
-    cards = list(Card(suit, value) for suit in Suit for value in Value)
+    def __post_init__(self):
+        self.cards = [Card(suit, value) for suit in Suit for value in Value]
 
     def shuffle(self):
         random.shuffle(self.cards)
@@ -23,3 +24,4 @@ class Deck:
             raise KeyError('Cannot draw from an empty deck.')
         
         return self.cards.pop()
+    
